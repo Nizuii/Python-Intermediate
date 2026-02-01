@@ -1,14 +1,52 @@
 from dotenv import load_dotenv
 load_dotenv()
+
 import os
 import sys
 import json
 import hashlib
 import requests
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 from requests.auth import HTTPBasicAuth
 from datetime import datetime, timezone
 
 BASELINE_FILE = "baseline.json"
+
+# =========================
+# Email Configuration
+# =========================
+SMTP_SERVER = os.getenv("SMTP_SERVER")
+SMTP_PORT = int(os.getenv("SMTP_PORT", 587))
+EMAIL_USER = os.getenv("EMAIL_USER")
+EMAIL_PASS = os.getenv("EMAIL_PASS")
+ALERT_TO = os.getenv("ALERT_TO")
+
+
+def send_email_alert(subject, body):
+    if not all([SMTP_SERVER, EMAIL_USER, EMAIL_PASS, ALERT_TO]):
+        print("[!] Email not configured. Skipping email alert.")
+        return
+
+    try:
+        msg = MIMEMultipart()
+        msg["From"] = EMAIL_USER
+        msg["To"] = ALERT_TO
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()
+        server.login(EMAIL_USER, EMAIL_PASS)
+        server.send_message(msg)
+        server.quit()
+
+        print("[+] Email alert sent")
+
+    except Exception as e:
+        print(f"[!] Email alert failed: {e}")
+
 
 # =========================
 # Load Jira Configuration
@@ -149,6 +187,12 @@ def check_integrity(directory):
     report = "\n".join(alerts)
 
     print("[!] Integrity violations detected")
+
+    # ---- EMAIL ALERT (ADDED) ----
+    send_email_alert(
+        subject="🚨 FIM ALERT: File Integrity Violation",
+        body=f"Time (UTC): {timestamp}\n\n{report}"
+    )
 
     jira = load_jira_config()
     if not jira:
