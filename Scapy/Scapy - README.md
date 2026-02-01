@@ -12,3 +12,23 @@ Scapy works by representing packets as python objects. Instead of saying: “Sen
 - Raw payloads
 
 And we can inspect or alter any field: flags, sequence numbers, TTL, checksums, payload bytes.
+
+## How Scapy is useful in cyber security.
+
+### 1. Packet sniffing and traffic analysis
+
+Scapy can sniff live network traffic and dissect packets in real time. This is useful for:
+
+- Detecting suspicious traffic patterns.
+- Analyzing malware C2 communication.
+- Understanding proprietary or obscure protocols.
+- Learning how real network traffic behaves (not textbook examples).
+
+### 2. Network scanning and reconnaissance
+
+Scapy allows you to build custom scanners, not just rely on Nmap defaults. Example:
+
+- Custom TCP SYN scans
+- Stealthy ICMP probes
+- OS fingerprinting experiments
+- Firewall rule testing
