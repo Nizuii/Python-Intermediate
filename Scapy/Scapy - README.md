@@ -30,7 +30,39 @@ Scapy can sniff live network traffic and dissect packets in real time. This is u
 
 Scapy allows you to build custom scanners, not just rely on Nmap defaults. Example:
 
-- Custom TCP SYN scans
-- Stealthy ICMP probes
-- OS fingerprinting experiments
-- Firewall rule testing
+- Custom TCP SYN scans.
+- Stealthy ICMP probes.
+- OS fingerprinting experiments.
+- Firewall rule testing.
+
+### 3. ARP spoofing and MITM attacks
+
+Scapy is commonly used to:
+
+- Poison ARP caches.
+- Intercept traffic in local networks.
+- Demonstrate Man-in-the-Middle attacks in labs.
+
+### 4. Denial-of-Service (DoS) research
+
+In controlled environments, Scapy is used to:
+
+- Generate packet floods.
+- Test rate-limiting.
+- Validate IDS/IPS rules.
+
+### 5. Exploit development and protocol fuzzing
+
+- Fuzz protocol fields.
+- Send malformed packets.
+- Trigger edge-case behavior in services.
+- Discover crashes or unexpected responses.
+
+### 6. IDS/IPS and detection engineering
+
+Blue teams use Scapy to:
+
+- Generate attack traffic.
+- Test detection rules.
+- Validate alert thresholds.
+- Reproduce suspicious packets from logs.
