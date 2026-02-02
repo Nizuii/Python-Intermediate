@@ -16,4 +16,13 @@ Pandas is perfect for spotting anomalies. We can baseline "normal" behaviour - a
 
 ### 3. Malware & IOC analysis
 
-When you have thousands of Indicators of Compromise - IP's, Domains, Files hashes - Pandas is excellent after the fact. Export PCAP summaries into CSV then use pandas to analyze top talkers, suspicious ports, abnormal byte counts or lateral movement patterns.
+When we have thousands of Indicators of Compromise—IPs, domains, file hashes—Pandas helps you deduplicate them, enrich them, compare them against logs, and see which ones actually appear in your environment. It’s also useful for analyzing sandbox outputs and behavioral reports.
+
+### 4. Network Traffic Analysis (Post Capture)
+
+While tools like Scapy or Wireshark handle packet capture, Pandas is excellent after the fact. Export PCAP summaries (or NetFlow data) into CSV, then use Pandas to analyze top talkers, suspicious ports, abnormal byte counts, or lateral movement patterns.
+
+### 5. Automation & Reporting
+
+Pandas integrates cleanly with Python scripts. That means we can automate daily security reports: top attacking IPs, failed login trends, alert counts per severity, or compliance metrics. Security teams love automation; manual analysis doesn’t scale.
+
