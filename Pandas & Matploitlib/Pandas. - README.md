@@ -9,3 +9,11 @@ In cyber security everything is data: logs, packets, alerts, events, timestamps,
 ### 1. Log Analysis
 
 This is the most common real world use. Imagine authentication logs, firewall logs, web server logs, SIEM exports or IDS alerts. With Pandas, we can load CSV or JSON log file, filter failed logins, group by IP address, count attempts per user, detect brute-force patterns, and correlate events across time windows. What would take hours manually can take seconds with a few lines of code.
+
+### 2. Incident Detection and Threat Hunting
+
+Pandas is perfect for spotting anomalies. We can baseline "normal" behaviour - average login frequency, normal ports accessed, typical working hours - and then flag diveations. For example, a user logging in at 3 AM from a new country. Pandas makes that pattern jump out. This is foundational thinking for SOC analyst and blue teamers.
+
+### 3. Malware & IOC analysis
+
+When you have thousands of Indicators of Compromise - IP's, Domains, Files hashes - Pandas is excellent after the fact. Export PCAP summaries into CSV then use pandas to analyze top talkers, suspicious ports, abnormal byte counts or lateral movement patterns.
