@@ -8,4 +8,4 @@ In cyber security everything is data: logs, packets, alerts, events, timestamps,
 
 ### 1. Log Analysis
 
-This is the most common real world use. Imagine authentication logs, firewall logs, web server logs, SIEM exports or IDS alerts.
+This is the most common real world use. Imagine authentication logs, firewall logs, web server logs, SIEM exports or IDS alerts. With Pandas, we can load CSV or JSON log file, filter failed logins, group by IP address, count attempts per user, detect brute-force patterns, and correlate events across time windows. What would take hours manually can take seconds with a few lines of code.
